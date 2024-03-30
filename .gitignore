@@ -1,0 +1,39 @@
+# Django development files
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+
+# Database
+db.sqlite3
+
+# Static files
+/staticfiles/
+
+# Media files
+/media/
+
+# Secret keys
+*.env
+
+# Virtual environment
+venv/
+.env/
+
+# IDE files
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Compiled Python files
+*.pyc
+
+# Ignore migrations (these should be generated when needed)
+*/migrations/
+
+# Ignore any local development configuration files
+**/settings_local.py
+
+# Ignore system files from macOS
+.DS_Store
