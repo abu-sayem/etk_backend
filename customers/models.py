@@ -7,6 +7,8 @@ from dateutil.relativedelta import relativedelta
 class Customer(AbstractUser):
     profile_photo = models.ImageField(upload_to='profile_photos/', null=True, blank=True)
     bio = models.TextField(blank=True)
+    phone_number = models.CharField(max_length=15, blank=True)
+    birth_date = models.DateField(null=True, blank=True)
     #following_list = models.ManyToManyField('content.Channel', related_name='followers', blank=True)
     #saved_content_list = models.ManyToManyField('content.VideoContent', related_name='saved_by', blank=True)
     #watch_history = models.ManyToManyField('content.VideoContent', related_name='watched_by', blank=True)
@@ -24,6 +26,7 @@ class GeneralProfile(Customer):
 class VerifiedProfile(Customer):
     real_name = models.CharField(max_length=255)
     submitted_vs_approved_number = models.IntegerField(default=0)
+    nid = models.CharField(max_length=20)
     #channels = models.ManyToManyField('Channel', related_name='created_by', blank=True)
     #fact_checks = models.ManyToManyField('FactCheck', related_name='fact_checked_by', blank=True)
     credibility_rating = models.FloatField(default=0.0)
