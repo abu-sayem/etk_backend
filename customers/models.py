@@ -19,6 +19,8 @@ class Customer(AbstractUser):
     location = models.CharField(max_length=30, blank=True)
     birth_date = models.DateField(null=True, blank=True)
     is_verified = models.BooleanField(default=False)
+    is_phone_verified = models.BooleanField(default=False)
+    is_nid_verified = models.BooleanField(default=False)
 
 class GeneralProfile(Customer):
     name = models.CharField(max_length=255)
