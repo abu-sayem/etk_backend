@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ju8h$6b^5s$zdb_)h@jxb8j6ii$fxap-r=lg=yict33d@vo_rc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'subscriptions',
 
     'dj_rest_auth',
+    'rest_framework.authtoken',
     
 ]
 
@@ -117,7 +118,19 @@ REST_AUTH = {
     'JWT_AUTH_COOKIE': 'jwt-auth',
 }
 
-ROOT_URLCONF = 'etk_backend.urls'
+ROOT_URLCONF = 'etkbackend.urls'
+
+
+
+
+
+REST_FRAMEWORK = {
+
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
 
 
 # Internationalization
