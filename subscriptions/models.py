@@ -1,5 +1,5 @@
 from django.db import models
-from customers.models import Customer
+from customers.models import Account
 from django.utils import timezone
 from dateutil.relativedelta import relativedelta
 from datetime import timedelta
@@ -90,7 +90,7 @@ class Subscription(models.Model):
         ('pending', 'Pending'),
         ('expired', 'Expired'),
     ]
-    user = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    user = models.ForeignKey(Account, on_delete=models.CASCADE)
     plan = models.ForeignKey(SubscriptionPlan, on_delete=models.CASCADE)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='inactive')
     start_date = models.DateField()

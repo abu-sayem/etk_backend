@@ -1,8 +1,8 @@
 from django.db import models
-from customers.models import Customer
+from customers.models import Account
 from django.utils import timezone
 from dateutil.relativedelta import relativedelta
-from customers.models import VerifiedProfile
+
 
 
 
@@ -15,14 +15,14 @@ class Channel(models.Model):
     cover_photo = models.ImageField(upload_to='channel_cover_photos/', null=True, blank=True)
     description = models.TextField(blank=True)
     email_address = models.EmailField()
-    followers = models.ManyToManyField(Customer, related_name='following_list', blank=True)
+    followers = models.ManyToManyField(Account, related_name='following_list', blank=True)
     
     notification_options = models.TextField(blank=True)
-    verified_profile = models.ForeignKey(VerifiedProfile, on_delete=models.CASCADE)
+    verified_profile = models.ForeignKey(Account, on_delete=models.CASCADE)
 
 
 class Collaborator(models.Model):
-    user = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    user = models.ForeignKey(Account, on_delete=models.CASCADE)
     channel = models.ForeignKey(Channel, on_delete=models.CASCADE)
     administrative_privilege = models.CharField(max_length=100)
 

@@ -117,6 +117,8 @@ REST_AUTH = {
     'JWT_AUTH_COOKIE': 'jwt-auth',
 }
 
+ROOT_URLCONF = 'etk_backend.urls'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
