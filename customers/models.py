@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from dateutil.relativedelta import relativedelta
 
-class Customer(AbstractUser):
+class Account(AbstractUser):
     profile_photo = models.ImageField(upload_to='profile_photos/', null=True, blank=True)
     bio = models.TextField(blank=True)
     phone_number = models.CharField(max_length=15, blank=True)
@@ -22,10 +22,10 @@ class Customer(AbstractUser):
     is_phone_verified = models.BooleanField(default=False)
     is_nid_verified = models.BooleanField(default=False)
 
-class GeneralProfile(Customer):
+class GeneralProfile(Account):
     name = models.CharField(max_length=255)
 
-class VerifiedProfile(Customer):
+class VerifiedProfile(Account):
     real_name = models.CharField(max_length=255)
     submitted_vs_approved_number = models.IntegerField(default=0)
     nid = models.CharField(max_length=20)
