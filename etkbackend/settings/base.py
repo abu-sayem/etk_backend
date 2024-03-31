@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'contents',
     'customers',
     'subscriptions',
+
+    'dj_rest_auth',
     
 ]
 
@@ -104,6 +106,16 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'customers.Account'
+
+
+
+
+
+# dj rest auth
+REST_AUTH = {
+    'USE_JWT': True,
+    'JWT_AUTH_COOKIE': 'jwt-auth',
+}
 
 
 # Internationalization

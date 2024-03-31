@@ -18,18 +18,15 @@ class Account(AbstractUser):
     bio = models.TextField(max_length=500, blank=True)
     location = models.CharField(max_length=30, blank=True)
     birth_date = models.DateField(null=True, blank=True)
+    nid = models.CharField(max_length=20)
     is_verified = models.BooleanField(default=False)
     is_phone_verified = models.BooleanField(default=False)
     is_nid_verified = models.BooleanField(default=False)
-
-class GeneralProfile(Account):
-    name = models.CharField(max_length=255)
-
-class VerifiedProfile(Account):
-    real_name = models.CharField(max_length=255)
-    submitted_vs_approved_number = models.IntegerField(default=0)
-    nid = models.CharField(max_length=20)
-    #channels = models.ManyToManyField('Channel', related_name='created_by', blank=True)
-    #fact_checks = models.ManyToManyField('FactCheck', related_name='fact_checked_by', blank=True)
     credibility_rating = models.FloatField(default=0.0)
     monetization = models.BooleanField(default=False)
+    real_name = models.CharField(max_length=255)
+    submitted_vs_approved_number = models.IntegerField(default=0)
+
+    
+    #channels = models.ManyToManyField('Channel', related_name='created_by', blank=True)
+    #fact_checks = models.ManyToManyField('FactCheck', related_name='fact_checked_by', blank=True)
