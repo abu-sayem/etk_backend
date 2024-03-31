@@ -29,9 +29,6 @@ venv/
 # Compiled Python files
 *.pyc
 
-# Ignore migrations (these should be generated when needed)
-*/migrations/
-
 # Ignore any local development configuration files
 **/settings_local.py
 
